@@ -30,10 +30,11 @@ public class CameraShake : MonoBehaviour
 
     void Update()
     {
-        if (isPermaShakeing)
-            UpdatePermaShake();
-        else
-            UpdateShotShake();
+        if (Effects.Instance.effectsActive)
+            if (isPermaShakeing)
+                UpdatePermaShake();
+            else
+                UpdateShotShake();
     }
 
     void UpdateShotShake()
@@ -62,6 +63,11 @@ public class CameraShake : MonoBehaviour
 
     public void StartPermaShake(float intensity = 0.05f)
     {
+        if (intensity <= 0)
+            intensity = 0.0001f;
+        if (intensity > 50)
+            intensity = 50;
+
         shake_intensity = intensity; // .2f;
         shake_decay = 0.04f;
         isPermaShakeing = true;
