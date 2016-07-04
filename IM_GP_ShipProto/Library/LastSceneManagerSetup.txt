@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/simpleShip.unity
+- path: Assets/Scene/Phase_2.unity
   isLoaded: 1
   isActive: 1
